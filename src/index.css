@@ -1,0 +1,153 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #0B132B;
+    color: #F4F5F7;
+    letter-spacing: 0.005em;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" on, "zero" on;
+  }
+
+  select, input, textarea {
+    color-scheme: dark;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" on, "zero" on;
+}
+
+/* Unified Glassmorphism 2026 Design System */
+.glass-panel {
+  background: linear-gradient(
+    165deg,
+    rgba(21, 32, 70, 0.82) 0%,
+    rgba(12, 20, 46, 0.9) 100%
+  );
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow:
+    0 16px 36px -14px rgba(4, 8, 22, 0.72),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+}
+
+.glass-subpanel {
+  background: rgba(10, 17, 40, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+.glass-interactive {
+  transition:
+    transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-interactive:hover {
+  transform: translateY(-2px);
+  border-color: rgba(93, 63, 211, 0.55);
+  box-shadow:
+    0 20px 40px -14px rgba(8, 14, 36, 0.85),
+    0 0 22px -6px rgba(93, 63, 211, 0.28),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.16);
+}
+
+/* Subtle Architectural Grid Overlay */
+.bg-architectural-grid {
+  background-size: 48px 48px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+}
+
+/* Compositor-Only Fluid Animations */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modalScaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-view-enter {
+  animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-stagger-1 {
+  animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) 25ms both;
+}
+
+.animate-stagger-2 {
+  animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) 50ms both;
+}
+
+.animate-stagger-3 {
+  animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) 75ms both;
+}
+
+.animate-stagger-4 {
+  animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) 100ms both;
+}
+
+.animate-modal-enter {
+  animation: modalScaleIn 190ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-view-enter,
+  .animate-stagger-1,
+  .animate-stagger-2,
+  .animate-stagger-3,
+  .animate-stagger-4,
+  .animate-modal-enter {
+    animation: none !important;
+  }
+}

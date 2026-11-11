@@ -1,0 +1,6 @@
+{
+  "name": "OpenRouter Agentic Proxy & Dashboard",
+  "description": "Proxy intelligent et résilient pour OpenRouter optimisé pour les agents autonomes, avec fallback multi-fournisseurs automatique, suivi des coûts par étape et dashboard de supervision en temps réel.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
